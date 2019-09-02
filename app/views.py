@@ -67,9 +67,3 @@ def register(request):
     context = RequestContext(request)
     context_dict = {}
     return render_to_response('game/registration.html', context_dict, context)
-
-@csrf_exempt
-def room(request, room_name):
-    return render(request, 'game/room/html', {
-                  'room_name_json': mark_safe(json.dumps(room_name))
-                  })
