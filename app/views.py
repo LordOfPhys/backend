@@ -20,12 +20,20 @@ def index(request):
     context_dict = {}
     return render_to_response('game/index.html', context_dict, context)
 
+@csrf_exempt
+def setLocation(request):
+    context = RequestContext(request)
+    context_dict = {}
+    if request.method == 'POST':
+        print(request.body)
+        print(request.POST)
+    return HttpResponse('200')
 
 @csrf_exempt
 def take_numbers(request):
     a = random.randint(1, 6)
     b = random.randint(1, 6)
-    data = {'length': a, 'height': b, 'success': True}
+    data = {'length': a, 'height': b}
     print(data)
     return HttpResponse(json.dumps(data))
 

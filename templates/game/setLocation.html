@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Вход</title>
+    <link href="{% static 'css/reg.css' %}" rel="stylesheet" type = "text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class = 'content'>
+        <form method = 'post'>
+            <div class = 'item'>
+                <input type="text" id="lat" name="lat" value = 'Lat'>
+            </div>
+            <div class = 'item'>
+                <input type="text" id="lontitude" name="lontitude" value = 'lontitude'>
+            </div>
+            <input type="submit" value="Отправить">
+        </form>
+        {{ boldmessage }}
+    </div>
+</body>
+</html>
+
