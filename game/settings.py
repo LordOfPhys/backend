@@ -33,12 +33,12 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'rest_framework.authtoken',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'channels',
 ]
 
 MIDDLEWARE = [
@@ -51,17 +51,24 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
+
 ROOT_URLCONF = 'game.urls'
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
 STATICFILES_DIRS = [
-                    '/Users/anton/game/static',
+                    'static',
                     ]
 
 LOGIN_REDIRECT_URL = '../index'
 
-STATIC_ROOT = "/Users/anton/game/wsgi/static"
+STATIC_ROOT = "/gamelord/wsgi/static"
 
 TEMPLATES = [
     {
@@ -115,6 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 LANGUAGE_CODE = 'en-us'
 
